@@ -1,9 +1,15 @@
-var assert = require('assert');
-
-describe('Array', function() {
-  describe('#indexOf()', function() {
-    it('should return -1 when the value is not present', function() {
-      assert.equal([1,2,3].indexOf(4), -1);
+function importTest(name, path) {
+    describe(name, function () {
+        require(path);
     });
-  });
+}
+
+describe("test", function () {
+    beforeEach(function () {
+       console.log("Testing...");
+    });
+    importTest("task3", './task3/test');
+    after(function () {
+        console.log("Tests Complete");
+    });
 });
