@@ -43,7 +43,5 @@ class MyMath {
 
 Bonus Points
 + Complete all 3 tasks
-+ Create a CI/CD pipeline to run all tasks upon push to your Github repo - In Progress
++ Create a CI/CD pipeline to run all tasks upon push to your Github repo - Done!
 + Use Javascript testing framework(s) with ES2015/ES2016/ES2017
-
-Testing CI/CD
