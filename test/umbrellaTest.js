@@ -9,7 +9,8 @@ describe("Testing:", function () {
     //    console.log("Testing...");
     // });
     importTest("MyMath", './MyMath/test');
-    importTest("API", './API/test');
+    importTest("API - GET /rate/[pair]", './API/rate');
+    importTest("API - GET /getcoins", './API/getcoins');
     // after(function () {
     //     console.log("Tests Complete");
     // });
