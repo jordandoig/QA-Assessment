@@ -36,3 +36,11 @@ it("Should return a response from the API with an Object called body.", (done) =
     done();
   });
 });
+
+it("Should return a response from the API with a body that is not empty.", (done) => {
+  var req = request('https://shapeshift.io').get('/getcoins');
+  req.end((err, res) => {
+    var body = res.res.body;
+    assert.isNotEmpty(body, 'ShapeShift API should return a response with a non-empty Object called body from GET /getcoins.');
+  });
+});
