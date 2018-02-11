@@ -224,3 +224,24 @@ it("Should return a response from the API with a body composed of Objects, each 
     done();
   });
 });
+
+it("Should return a response from the API with a body composed of Objects, each having a status 'available' or 'unavailable'.", (done) => {
+  var req = request('https://shapeshift.io').get('/getcoins');
+  req.end((err, res) => {
+    var body = res.res.body;
+    var containsUnexpectedStatus = false;
+    var statusOptions = ['available', 'unavailable'];
+    // Iterate through keys in body, searching for key that does not have a status that is a string
+    for (var key in body) {
+      if (body.hasOwnProperty(key)) {
+        if (!statusOptions.includes(body[key].status)) {
+          containsUnexpectedStatus = true;
+          break;
+        }
+      }
+    }
+
+    assert.equal(false, containsUnexpectedStatus, 'ShapeShift API should return a response with a body composed of Objects, each having a status "available" or "unavailable", from GET /getcoins.');
+    done();
+  });
+});
