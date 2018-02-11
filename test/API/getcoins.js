@@ -84,3 +84,63 @@ it("Should return a response from the API with a body composed of Objects, each 
     done();
   });
 });
+
+it("Should return a response from the API with a body composed of Objects, each having a symbol.", (done) => {
+  var req = request('https://shapeshift.io').get('/getcoins');
+  req.end((err, res) => {
+    var body = res.res.body;
+    var containsSymbollessObject = false;
+    // Iterate through keys in body, searching for key that is not an object
+    for (var key in body) {
+      if (body.hasOwnProperty(key)) {
+        if (!body[key].hasOwnProperty('symbol')) {
+          containsSymbollessObject = true;
+          break;
+        }
+      }
+    }
+
+    assert.equal(false, containsSymbollessObject, 'ShapeShift API should return a response with a body composed of Objects, each having a symbol, from GET /getcoins.');
+    done();
+  });
+});
+
+it("Should return a response from the API with a body composed of Objects, each having a image.", (done) => {
+  var req = request('https://shapeshift.io').get('/getcoins');
+  req.end((err, res) => {
+    var body = res.res.body;
+    var containsImagelessObject = false;
+    // Iterate through keys in body, searching for key that is not an object
+    for (var key in body) {
+      if (body.hasOwnProperty(key)) {
+        if (!body[key].hasOwnProperty('image')) {
+          containsImagelessObject = true;
+          break;
+        }
+      }
+    }
+
+    assert.equal(false, containsImagelessObject, 'ShapeShift API should return a response with a body composed of Objects, each having a image, from GET /getcoins.');
+    done();
+  });
+});
+
+it("Should return a response from the API with a body composed of Objects, each having a status.", (done) => {
+  var req = request('https://shapeshift.io').get('/getcoins');
+  req.end((err, res) => {
+    var body = res.res.body;
+    var containsStatuslessObject = false;
+    // Iterate through keys in body, searching for key that is not an object
+    for (var key in body) {
+      if (body.hasOwnProperty(key)) {
+        if (!body[key].hasOwnProperty('status')) {
+          containsStatuslessObject = true;
+          break;
+        }
+      }
+    }
+
+    assert.equal(false, containsStatuslessObject, 'ShapeShift API should return a response with a body composed of Objects, each having a status, from GET /getcoins.');
+    done();
+  });
+});
