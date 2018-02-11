@@ -8,3 +8,4 @@ exports.options = options;
 exports.chai = chai;
 exports.assert = chai.assert;
 exports.request = chai.request;
+exports.should = chai.should();
