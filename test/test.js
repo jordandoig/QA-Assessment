@@ -4,7 +4,7 @@ function importTest(name, path) {
     });
 }
 
-describe("test", function () {
+describe("Testing:", function () {
     // beforeEach(function () {
     //    console.log("Testing...");
     // });
