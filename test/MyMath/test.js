@@ -8,11 +8,26 @@ it("Should create an instance.", () => {
   assert.exists(instance);
 });
 
+it("Should create an instance of the MyMath class.", () => {
+  var instance = new MyMath();
+
+  assert.instanceOf(instance, MyMath);
+});
+
 it("Should return 4 when 3 and 1 are added.", () => {
   var instance = new MyMath();
   var result = instance.add(3,1);
 
   assert.strictEqual(4,result);
+});
+
+it("Should reject non-numeric input.", () => {
+  var instance = new MyMath();
+  var result = function () {
+    instance.add("not","number");
+  }
+
+  assert.throws(result, "Input must be numeric.");
 });
 
 it("Should return 3 when 6 is subtracted from 9.", () => {
