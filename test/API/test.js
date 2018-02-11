@@ -11,21 +11,19 @@ it("Should return a response from the API.", (done) => {
   });
 });
 
+it("Should return a response from the API in JSON format.", (done) => {
+  var req = request('https://shapeshift.io').get('/rate/btc_ltc');
+  req.end((err, res) => {
+    res.should.be.json;
+    done();
+  });
+});
+
 it("Should return a response from the API with status 200.", (done) => {
   var req = request('https://shapeshift.io').get('/rate/btc_ltc');
   req.end((err, res) => {
     var status = res.status;
     assert.equal(200, status, 'ShapeShift API should return a response with status 200 from GET /rate/btc_ltc.');
-    done();
-  });
-});
-
-it("Should return a response from the API in JSON format.", (done) => {
-  var req = request('https://shapeshift.io').get('/rate/btc_ltc');
-  req.end((err, res) => {
-    res.should.be.json;
-    // var status = res.status;
-    // assert.equal(200, status, 'ShapeShift API should return a response with status 200 from GET /rate/btc_ltc.');
     done();
   });
 });
