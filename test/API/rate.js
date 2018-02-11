@@ -28,6 +28,15 @@ it("Should return a response from the API with status 200.", (done) => {
   });
 });
 
+it("Should return a response from the API with an Object called body.", (done) => {
+  var req = request('https://shapeshift.io').get('/rate/btc_ltc');
+  req.end((err, res) => {
+    var bodyType = typeof(res.res.body);
+    assert.equal('object', bodyType, 'ShapeShift API should return a response with an Object called body from GET /rate/btc_ltc.');
+    done();
+  });
+});
+
 it("Should return a response from the API with a pair that matches the request pair.", (done) => {
   var reqPair = 'btc_ltc';
   var req = request('https://shapeshift.io').get('/rate/' + reqPair);
