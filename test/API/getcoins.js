@@ -70,7 +70,7 @@ it("Should return a response from the API with a body composed of Objects, each 
   req.end((err, res) => {
     var body = res.res.body;
     var containsNamelessObject = false;
-    // Iterate through keys in body, searching for key that is not an object
+    // Iterate through keys in body, searching for key that does not have a name
     for (var key in body) {
       if (body.hasOwnProperty(key)) {
         if (!body[key].hasOwnProperty('name')) {
@@ -85,12 +85,32 @@ it("Should return a response from the API with a body composed of Objects, each 
   });
 });
 
+it("Should return a response from the API with a body composed of Objects, each having a name that is a string.", (done) => {
+  var req = request('https://shapeshift.io').get('/getcoins');
+  req.end((err, res) => {
+    var body = res.res.body;
+    var containsNonStringName = false;
+    // Iterate through keys in body, searching for key that does not have a name that is a string
+    for (var key in body) {
+      if (body.hasOwnProperty(key)) {
+        if (typeof(body[key].name) !== 'string') {
+          containsNonStringName = true;
+          break;
+        }
+      }
+    }
+
+    assert.equal(false, containsNonStringName, 'ShapeShift API should return a response with a body composed of Objects, each having a name that is a string, from GET /getcoins.');
+    done();
+  });
+});
+
 it("Should return a response from the API with a body composed of Objects, each having a symbol.", (done) => {
   var req = request('https://shapeshift.io').get('/getcoins');
   req.end((err, res) => {
     var body = res.res.body;
     var containsSymbollessObject = false;
-    // Iterate through keys in body, searching for key that is not an object
+    // Iterate through keys in body, searching for key that does not have a symbol
     for (var key in body) {
       if (body.hasOwnProperty(key)) {
         if (!body[key].hasOwnProperty('symbol')) {
@@ -105,12 +125,32 @@ it("Should return a response from the API with a body composed of Objects, each 
   });
 });
 
+it("Should return a response from the API with a body composed of Objects, each having a symbol that is a string.", (done) => {
+  var req = request('https://shapeshift.io').get('/getcoins');
+  req.end((err, res) => {
+    var body = res.res.body;
+    var containsNonStringSymbol = false;
+    // Iterate through keys in body, searching for key that does not have a symbol that is a string
+    for (var key in body) {
+      if (body.hasOwnProperty(key)) {
+        if (typeof(body[key].symbol) !== 'string') {
+          containsNonStringSymbol = true;
+          break;
+        }
+      }
+    }
+
+    assert.equal(false, containsNonStringSymbol, 'ShapeShift API should return a response with a body composed of Objects, each having a symbol that is a string, from GET /getcoins.');
+    done();
+  });
+});
+
 it("Should return a response from the API with a body composed of Objects, each having a image.", (done) => {
   var req = request('https://shapeshift.io').get('/getcoins');
   req.end((err, res) => {
     var body = res.res.body;
     var containsImagelessObject = false;
-    // Iterate through keys in body, searching for key that is not an object
+    // Iterate through keys in body, searching for key that does not have an image
     for (var key in body) {
       if (body.hasOwnProperty(key)) {
         if (!body[key].hasOwnProperty('image')) {
@@ -125,12 +165,32 @@ it("Should return a response from the API with a body composed of Objects, each 
   });
 });
 
+it("Should return a response from the API with a body composed of Objects, each having a image that is a string.", (done) => {
+  var req = request('https://shapeshift.io').get('/getcoins');
+  req.end((err, res) => {
+    var body = res.res.body;
+    var containsNonStringImage = false;
+    // Iterate through keys in body, searching for key that does not have a image that is a string
+    for (var key in body) {
+      if (body.hasOwnProperty(key)) {
+        if (typeof(body[key].image) !== 'string') {
+          containsNonStringImage = true;
+          break;
+        }
+      }
+    }
+
+    assert.equal(false, containsNonStringImage, 'ShapeShift API should return a response with a body composed of Objects, each having a image that is a string, from GET /getcoins.');
+    done();
+  });
+});
+
 it("Should return a response from the API with a body composed of Objects, each having a status.", (done) => {
   var req = request('https://shapeshift.io').get('/getcoins');
   req.end((err, res) => {
     var body = res.res.body;
     var containsStatuslessObject = false;
-    // Iterate through keys in body, searching for key that is not an object
+    // Iterate through keys in body, searching for key that does not have a status
     for (var key in body) {
       if (body.hasOwnProperty(key)) {
         if (!body[key].hasOwnProperty('status')) {
@@ -141,6 +201,26 @@ it("Should return a response from the API with a body composed of Objects, each 
     }
 
     assert.equal(false, containsStatuslessObject, 'ShapeShift API should return a response with a body composed of Objects, each having a status, from GET /getcoins.');
+    done();
+  });
+});
+
+it("Should return a response from the API with a body composed of Objects, each having a status that is a string.", (done) => {
+  var req = request('https://shapeshift.io').get('/getcoins');
+  req.end((err, res) => {
+    var body = res.res.body;
+    var containsNonStringStatus = false;
+    // Iterate through keys in body, searching for key that does not have a status that is a string
+    for (var key in body) {
+      if (body.hasOwnProperty(key)) {
+        if (typeof(body[key].status) !== 'string') {
+          containsNonStringStatus = true;
+          break;
+        }
+      }
+    }
+
+    assert.equal(false, containsNonStringStatus, 'ShapeShift API should return a response with a body composed of Objects, each having a status that is a string, from GET /getcoins.');
     done();
   });
 });
