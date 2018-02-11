@@ -28,20 +28,26 @@ it("Should return 4 when 3 and 1 are added.", () => {
   assert.strictEqual(4,result);
 });
 
-it("Should return 3 when 6 is subtracted from 9.", () => {
-  var result = MyMath.subtract(9,6);
+it("Should return -3 when 9 is subtracted from 6.", () => {
+  var result = MyMath.subtract(6,9);
 
-  assert.strictEqual(3,result);
+  assert.strictEqual(-3,result);
 });
 
-it("Should return 21 when 7 and 3 are multiplied.", () => {
-  var result = MyMath.multiply(7,3);
+it("Should return 7.5 when 2.5 and 3 are multiplied.", () => {
+  var result = MyMath.multiply(2.5,3);
 
-  assert.strictEqual(21,result);
+  assert.strictEqual(7.5,result);
 });
 
 it("Should return 5 when 30 is divided by 6.", () => {
   var result = MyMath.divide(30,6);
 
   assert.strictEqual(5,result);
+});
+
+it ("Should return 'undefined' when 1 is divided by 0.", () => {
+  var result = MyMath.divide(1,0);
+
+  assert.strictEqual(undefined,result);
 });

@@ -20,6 +20,9 @@ class MyMath {
   // divide 2 numbers and return result
   static divide(a, b) {
     this.validateInput(a, b);
+    if (b == 0) {
+      return undefined;
+    }
     return a / b;
   }
 
