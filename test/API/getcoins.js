@@ -27,3 +27,12 @@ it("Should return a response from the API with status 200.", (done) => {
     done();
   });
 });
+
+it("Should return a response from the API with an Object called body.", (done) => {
+  var req = request('https://shapeshift.io').get('/getcoins');
+  req.end((err, res) => {
+    var bodyType = typeof(res.res.body);
+    assert.equal('object', bodyType, 'ShapeShift API should return a response with an Object called body from GET /getcoins.');
+    done();
+  });
+});
