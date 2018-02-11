@@ -28,6 +28,17 @@ it("Should return a response from the API with status 200.", (done) => {
   });
 });
 
+it("Should return an error when no pair is specified.", (done) => {
+  var req = request('https://shapeshift.io').get('/rate/');
+  req.end((err, res) => {
+    console.log(res);
+    console.log(err);
+    // var status = res.status;
+    // assert.equal(200, status, 'ShapeShift API should return a response with status 200 from GET /rate/btc_ltc.');
+    done();
+  });
+});
+
 it("Should return a response from the API with a pair that matches the request pair.", (done) => {
   var reqPair = 'btc_ltc';
   var req = request('https://shapeshift.io').get('/rate/' + reqPair);
