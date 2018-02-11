@@ -36,3 +36,51 @@ it("Should return a response from the API with an Object called body.", (done) =
     done();
   });
 });
+
+it("Should return a response from the API with a body that is not empty.", (done) => {
+  var req = request('https://shapeshift.io').get('/getcoins');
+  req.end((err, res) => {
+    var body = res.res.body;
+    assert.isNotEmpty(body, 'ShapeShift API should return a response with a non-empty Object called body from GET /getcoins.');
+    done();
+  });
+});
+
+it("Should return a response from the API with a body composed of Objects.", (done) => {
+  var req = request('https://shapeshift.io').get('/getcoins');
+  req.end((err, res) => {
+    var body = res.res.body;
+    var containsNonObject = false;
+    // Iterate through keys in body, searching for key that is not an object
+    for (var key in body) {
+      if (body.hasOwnProperty(key)) {
+        if (typeof(body[key]) !== 'object') {
+          containsNonObject = true;
+          break;
+        }
+      }
+    }
+    assert.equal(false, containsNonObject, 'ShapeShift API should return a response with a body composed of Objects from GET /getcoins.');
+    done();
+  });
+});
+
+it("Should return a response from the API with a body composed of Objects, each having a name.", (done) => {
+  var req = request('https://shapeshift.io').get('/getcoins');
+  req.end((err, res) => {
+    var body = res.res.body;
+    var containsNamelessObject = false;
+    // Iterate through keys in body, searching for key that is not an object
+    for (var key in body) {
+      if (body.hasOwnProperty(key)) {
+        if (!body[key].hasOwnProperty('name')) {
+          containsNamelessObject = true;
+          break;
+        }
+      }
+    }
+
+    assert.equal(false, containsNamelessObject, 'ShapeShift API should return a response with a body composed of Objects, each having a name, from GET /getcoins.');
+    done();
+  });
+});
