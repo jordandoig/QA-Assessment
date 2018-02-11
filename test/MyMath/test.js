@@ -14,39 +14,34 @@ it("Should create an instance of the MyMath class.", () => {
   assert.instanceOf(instance, MyMath);
 });
 
-it("Should return 4 when 3 and 1 are added.", () => {
-  var instance = new MyMath();
-  var result = instance.add(3,1);
-
-  assert.strictEqual(4,result);
-});
-
 it("Should reject non-numeric input.", () => {
-  var instance = new MyMath();
   var result = function () {
-    instance.add("not","number");
+    MyMath.add("not","number");
   }
 
   assert.throws(result, "Input must be numeric.");
 });
 
+it("Should return 4 when 3 and 1 are added.", () => {
+  var result = MyMath.add(3,1);
+
+  assert.strictEqual(4,result);
+});
+
 it("Should return 3 when 6 is subtracted from 9.", () => {
-  var instance = new MyMath();
-  var result = instance.subtract(9,6);
+  var result = MyMath.subtract(9,6);
 
   assert.strictEqual(3,result);
 });
 
 it("Should return 21 when 7 and 3 are multiplied.", () => {
-  var instance = new MyMath();
-  var result = instance.multiply(7,3);
+  var result = MyMath.multiply(7,3);
 
   assert.strictEqual(21,result);
 });
 
 it("Should return 5 when 30 is divided by 6.", () => {
-  var instance = new MyMath();
-  var result = instance.divide(30,6);
+  var result = MyMath.divide(30,6);
 
   assert.strictEqual(5,result);
 });
