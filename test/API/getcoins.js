@@ -60,6 +60,7 @@ it("Should return a response from the API with a body composed of Objects.", (do
         }
       }
     }
+
     assert.equal(false, containsNonObject, 'ShapeShift API should return a response with a body composed of Objects from GET /getcoins.');
     done();
   });
