@@ -14,14 +14,15 @@ describe("/#/coins", () => {
     driver.quit();
   })
 
-  it("Should get the title of the page.", (done) => {
+  beforeEach(() => {
     driver.get("https://shapeshift.io/#/coins")
-      .then(() => {
-        driver.getTitle()
-          .then((title) => {
-            assert.equal('ShapeShift | Cryptocurrency Exchange | Simple Coin Conversion', title, 'shapeshift.io/#/coins should have title "ShapeShift | Cryptocurrency Exchange | Simple Coin Conversion".');
-            done();
-          })
-      })
+  })
+
+  it("Should get the title of the page.", (done) => {
+    driver.getTitle()
+      .then((title) => {
+        assert.equal('ShapeShift | Cryptocurrency Exchange | Simple Coin Conversion', title, 'shapeshift.io/#/coins should have title "ShapeShift | Cryptocurrency Exchange | Simple Coin Conversion".');
+        done();
+      });
   });
 });
