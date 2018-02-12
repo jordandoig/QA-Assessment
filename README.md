@@ -10,7 +10,7 @@ I broke up my workflow for this project into 4 sections:
 
 ### CI/CD Pipeline
 
-I set up a CI/CD Pipeline using CodeShip. It can be found here: https://app.codeship.com/jordandoig-patient-forest-42
+I set up a CI/CD Pipeline using CodeShip. It can be found here: https://app.codeship.com/projects/271278
 
 ### Assessment as Presented
 
