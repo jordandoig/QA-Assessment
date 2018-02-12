@@ -10,10 +10,18 @@ describe("/#/coins", () => {
       .build()
   });
 
+  after(() => {
+    driver.quit();
+  })
+
   it("Should get the title of the page.", (done) => {
     driver.get("https://shapeshift.io/#/coins")
       .then(() => {
-        done();
+        driver.getTitle()
+          .then((title) => {
+            assert.equal('ShapeShift | Cryptocurrency Exchange | Simple Coin Conversion', title, 'shapeshift.io/#/coins should have title "ShapeShift | Cryptocurrency Exchange | Simple Coin Conversion".');
+            done();
+          })
       })
   });
 });
