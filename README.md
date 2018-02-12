@@ -1,6 +1,16 @@
 # QA-Assessment
 
-This repository holds my response to the Quality Assurance Assessment given as part of my application for a role at ShapeShift. The repository is broken up into three sections for the three challenges given.
+This repository holds my response to the Quality Assurance Assessment given as part of my application for a role at ShapeShift.
+
+I broke up my workflow for this project into 4 sections:
++ Setup CI/CD Pipeline
++ Task 1
++ Task 2
++ Task 3
+
+### CI/CD Pipeline
+
+I set up a CI/CD Pipeline using CodeShip. It can be found here: https://app.codeship.com/jordandoig-patient-forest-42
 
 ### Assessment as Presented
 
@@ -43,5 +53,5 @@ class MyMath {
 
 Bonus Points
 + Complete all 3 tasks
-+ Create a CI/CD pipeline to run all tasks upon push to your Github repo - Done!
++ Create a CI/CD pipeline to run all tasks upon push to your Github repo
 + Use Javascript testing framework(s) with ES2015/ES2016/ES2017
